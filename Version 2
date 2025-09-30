@@ -1,0 +1,166 @@
+import React, { useState } from "react";
+import "./App.css";
+
+const App = () => {
+  const [total, setTotal] = useState("0");
+  const [color, setColor] = useState("white");
+  const colors = ["red", "blue", "green", "white"];
+
+  const buttonOne = () => {
+    if (total === "0") {
+      setTotal("1");
+    } else {
+      setTotal(total + "1");
+    }
+  };
+
+  const buttonTwo = () => {
+    if (total === "0") {
+      setTotal("2");
+    } else {
+      setTotal(total + "2");
+    }
+  };
+
+  const buttonThree = () => {
+    if (total === "0") {
+      setTotal("3");
+    } else {
+      setTotal(total + "3");
+    }
+  };
+
+  const buttonFour = () => {
+    if (total === "0") {
+      setTotal("4");
+    } else {
+      setTotal(total + "4");
+    }
+  };
+
+  const buttonFive = () => {
+    if (total === "0") {
+      setTotal("5");
+    } else {
+      setTotal(total + "5");
+    }
+  };
+
+  const buttonSix = () => {
+    if (total === "0") {
+      setTotal("6");
+    } else {
+      setTotal(total + "6");
+    }
+  };
+
+  const buttonSeven = () => {
+    if (total === "0") {
+      setTotal("7");
+    } else {
+      setTotal(total + "7");
+    }
+  };
+
+  const buttonEight = () => {
+    if (total === "0") {
+      setTotal("8");
+    } else {
+      setTotal(total + "8");
+    }
+  };
+
+  const buttonNine = () => {
+    if (total === "0") {
+      setTotal("9");
+    } else {
+      setTotal(total + "9");
+    }
+  };
+
+  const buttonZero = () => {
+    if (total === "0") {
+      setTotal("0");
+    } else {
+      setTotal(total + "0");
+    }
+  };
+
+  const buttonAdd = () => {
+    if (total.length > 0 && !total.endsWith(" + ")) {
+      setTotal(total + " + ");
+    }
+  };
+
+  const buttonMinus = () => {
+    if (total.length > 0 && !total.endsWith(" - ")) {
+      setTotal(total + " - ");
+    }
+  };
+
+  const buttonTimes = () => {
+    if (total.length > 0 && !total.endsWith(" * ")) {
+      setTotal(total + " * ");
+    }
+  };
+
+  const buttonDivide = () => {
+    if (total.length > 0 && !total.endsWith(" / ")) {
+      setTotal(total + " / ");
+    }
+  };
+
+  const buttonClear = () => {
+    setTotal("0");
+  };
+
+  const buttonEqual = () => {
+    try {
+      // replace spaces so eval works clean
+      const result = eval(total.replace(/\s+/g, ""));
+      setTotal(String(result));
+    } catch (e) {
+      setTotal("Error");
+    }
+  };
+
+  //HTML
+  return (
+    <>
+      <div className="theme">
+        <p>Theme</p>
+        <select value={color} onChange={(e) => setColor(e.target.value)}>
+          {colors.map((c) => (
+            <option value={c} key={c}>
+              {c.charAt(0).toUpperCase() + c.slice(1)}
+            </option>
+          ))}
+          ;
+        </select>
+      </div>
+      <div className="calculator" style={{ backgroundColor: color }}>
+        <p className="total">{total}</p>
+        <button onClick={buttonOne}>1</button>
+        <button onClick={buttonTwo}>2</button>
+        <button onClick={buttonThree}>3</button>
+        <button onClick={buttonFour}>4</button>
+        <button onClick={buttonFive}>5</button>
+        <button onClick={buttonSix}>6</button>
+        <button onClick={buttonSeven}>7</button>
+        <button onClick={buttonEight}>8</button>
+        <button onClick={buttonNine}>9</button>
+        <button onClick={buttonZero}>0</button>
+        <button onClick={buttonAdd}>+</button>
+        <button onClick={buttonMinus}>-</button>
+        <button onClick={buttonTimes}>*</button>
+        <button onClick={buttonDivide}> / </button>
+        <button onClick={buttonEqual}>=</button>
+        <button onClick={buttonClear} className="clear">
+          Clear
+        </button>
+      </div>
+    </>
+  );
+};
+
+export default App;
